@@ -35,19 +35,24 @@ export default function SignupPage() {
         email,
         role,
       });
-      router.push('/dashboard');
+       toast({
+        title: 'Account Created',
+        description: 'Your account was created successfully. Please login.',
+      });
+      router.push('/login');
     } catch (error: any) {
       toast({
         variant: 'destructive',
         title: 'Signup Failed',
         description: error.message,
       });
+    } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
+    <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-background to-secondary p-4">
       <Card className="mx-auto w-full max-w-sm">
         <CardHeader className="text-center">
           <div className="mb-4 flex justify-center">
