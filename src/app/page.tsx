@@ -101,10 +101,10 @@ export default function Home() {
             <div className="flex flex-col items-center justify-center space-y-6 text-center">
               <div className="space-y-4">
                 <h1 className="font-headline text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl/none bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                  Healing Made Smarter.
+                  Where Healing Meets Innovation.
                 </h1>
                 <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
-                  Your personalized journey to recovery. Find top therapists, book appointments with ease, and track your progress with our modern toolkit.
+                  PhysioVerse blends smart tech with compassionate care — helping you find top physiotherapists, book instantly, and track your recovery with clarity.
                 </p>
               </div>
               <div className="flex flex-col gap-2 min-[400px]:flex-row">
