@@ -25,7 +25,11 @@ export default function DashboardLayout({
     }
   }, [loading, user, router]);
 
-  if (loading || !user) {
+  if (loading) {
+    return <PageSpinner />;
+  }
+
+  if (!user) {
     return <PageSpinner />;
   }
 
