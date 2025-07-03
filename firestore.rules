@@ -1,31 +1,9 @@
-
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-    // Users can read any profile (e.g., for assigning a therapist), but only write to their own.
+    // Allow users to read and write to their own document
     match /users/{userId} {
-      allow read: if request.auth != null;
-      allow create, update: if request.auth.uid == userId;
-    }
-
-    // Treatment data can be accessed by the patient it belongs to or their assigned therapist.
-    match /treatments/{treatmentId} {
-      function isOwnerOrTherapist() {
-        let resourceData = resource.data;
-        let isPatient = request.auth.uid == resourceData.patientId;
-        // Ensure therapist exists and has the correct role before granting access
-        let isTherapist = request.auth.uid == resourceData.therapistId &&
-                           exists(/databases/$(database)/documents/users/$(request.auth.uid)) &&
-                           get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'therapist';
-        return isPatient || isTherapist;
-      }
-
-      allow read, update: if request.auth != null && isOwnerOrTherapist();
-
-      // Only therapists can create new treatments.
-      allow create: if request.auth != null &&
-                     exists(/databases/$(database)/documents/users/$(request.auth.uid)) &&
-                     get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'therapist';
+      allow read, write: if request.auth != null && request.auth.uid == userId;
     }
   }
 }
