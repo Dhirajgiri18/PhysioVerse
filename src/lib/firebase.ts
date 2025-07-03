@@ -54,7 +54,7 @@ const updateUserProfile = async (
   data: Partial<AppUser>
 ) => {
   const userDocRef = doc(db, 'users', uid);
-  return updateDoc(userDocRef, data);
+  return setDoc(userDocRef, data, { merge: true });
 };
 
 export { app, auth, db, createUserProfile, getUserProfile, updateUserProfile };
