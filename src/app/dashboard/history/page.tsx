@@ -2,9 +2,9 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 
 const mockSessions = [
-    { id: '1', date: '2024-07-22', therapist: 'Dr. Emily Carter', notes: 'Focused on lower back stretches. Patient reported less stiffness.' },
-    { id: '2', date: '2024-07-15', therapist: 'Dr. Emily Carter', notes: 'Introduced core strengthening exercises. Good progress.' },
-    { id: '3', date: '2024-07-08', therapist: 'Dr. Emily Carter', notes: 'Initial assessment. Plan created for managing sciatica.' },
+    { id: '1', date: '2024-07-22', therapist: 'Dr. Priya Sharma', notes: 'Focused on lower back stretches. Patient reported less stiffness.' },
+    { id: '2', date: '2024-07-15', therapist: 'Dr. Priya Sharma', notes: 'Introduced core strengthening exercises. Good progress.' },
+    { id: '3', date: '2024-07-08', therapist: 'Dr. Priya Sharma', notes: 'Initial assessment. Plan created for managing sciatica.' },
 ];
 
 export default function SessionHistoryPage() {

@@ -7,10 +7,10 @@ import { Progress } from '@/components/ui/progress';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
 const mockPatients: Patient[] = [
-  { id: '1', name: 'John Doe', email: 'john.d@example.com', lastActivity: '2 days ago', progress: 75 },
-  { id: '2', name: 'Jane Smith', email: 'jane.s@example.com', lastActivity: 'Today', progress: 50 },
-  { id: '3', name: 'Sam Wilson', email: 'sam.w@example.com', lastActivity: '1 week ago', progress: 25 },
-  { id: '4', name: 'Alice Brown', email: 'alice.b@example.com', lastActivity: '3 hours ago', progress: 90 },
+  { id: '1', name: 'Arjun Kumar', email: 'arjun.k@example.com', lastActivity: '2 days ago', progress: 75 },
+  { id: '2', name: 'Priya Patel', email: 'priya.p@example.com', lastActivity: 'Today', progress: 50 },
+  { id: '3', name: 'Vikram Singh', email: 'vikram.s@example.com', lastActivity: '1 week ago', progress: 25 },
+  { id: '4', name: 'Ananya Reddy', email: 'ananya.r@example.com', lastActivity: '3 hours ago', progress: 90 },
 ];
 
 export default function PatientManager() {
