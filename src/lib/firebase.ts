@@ -5,12 +5,12 @@ import type { AppUser } from '@/types';
 import { doc, setDoc, getDoc } from 'firebase/firestore';
 
 const firebaseConfig = {
-  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
-  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
-  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
-  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
+  apiKey: "AIzaSyCD2kp1X-a79oESU31F-3NjSsx0EZ6Xjeg",
+  authDomain: "healero-1y06x.firebaseapp.com",
+  projectId: "healero-1y06x",
+  storageBucket: "healero-1y06x.firebasestorage.app",
+  messagingSenderId: "184817731214",
+  appId: "1:184817731214:web:0b9e1d7c24d42db090ebdf"
 };
 
 // Initialize Firebase
