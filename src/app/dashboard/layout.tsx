@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/hooks/use-auth';
 import { SidebarProvider, Sidebar, SidebarHeader, SidebarContent, SidebarMenu, SidebarMenuItem, SidebarMenuButton, SidebarFooter } from '@/components/ui/sidebar';
@@ -17,12 +18,13 @@ export default function DashboardLayout({
   const { user, loading, logout } = useAuth();
   const router = useRouter();
 
-  if (loading) {
-    return <PageSpinner />;
-  }
+  useEffect(() => {
+    if (!loading && !user) {
+      router.push('/login');
+    }
+  }, [loading, user, router]);
 
-  if (!user) {
-    router.push('/login');
+  if (loading || !user) {
     return <PageSpinner />;
   }
 
