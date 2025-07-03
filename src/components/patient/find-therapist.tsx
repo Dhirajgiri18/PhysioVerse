@@ -5,8 +5,8 @@ import type { Therapist } from '@/types';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Search } from 'lucide-react';
+import { Avatar, AvatarFallback } from '@/components/ui/avatar';
+import { Search, User } from 'lucide-react';
 
 const mockTherapists: Therapist[] = [
   {
@@ -51,8 +51,6 @@ export default function FindTherapist() {
     therapist.specialty.toLowerCase().includes(searchTerm.toLowerCase()) ||
     therapist.location.toLowerCase().includes(searchTerm.toLowerCase())
   );
-  
-  const getInitials = (name: string) => name.split(' ').map(n => n[0]).join('');
 
   return (
     <div className="space-y-6">
@@ -68,11 +66,12 @@ export default function FindTherapist() {
       </div>
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {filteredTherapists.map((therapist) => (
-          <Card key={therapist.id} className="flex flex-col">
+          <Card key={therapist.id} className="flex flex-col group">
             <CardHeader className="flex-row items-center gap-4">
                <Avatar className="h-16 w-16">
-                  <AvatarImage src={therapist.avatarUrl} alt={therapist.name} data-ai-hint="therapist portrait" />
-                  <AvatarFallback>{getInitials(therapist.name)}</AvatarFallback>
+                  <AvatarFallback className="bg-background transition-colors group-hover:bg-muted">
+                    <User className="h-8 w-8 text-muted-foreground transition-transform group-hover:scale-110" />
+                  </AvatarFallback>
                 </Avatar>
               <div>
                 <CardTitle>{therapist.name}</CardTitle>

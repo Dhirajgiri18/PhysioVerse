@@ -46,5 +46,5 @@ export interface Therapist {
   specialty: string;
   location: string;
   bio: string;
-  avatarUrl: string;
+  avatarUrl?: string;
 }
