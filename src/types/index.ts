@@ -34,3 +34,12 @@ export interface Patient {
     lastActivity: string;
     progress: number;
 }
+
+export interface Therapist {
+  id: string;
+  name: string;
+  specialty: string;
+  location: string;
+  bio: string;
+  avatarUrl: string;
+}

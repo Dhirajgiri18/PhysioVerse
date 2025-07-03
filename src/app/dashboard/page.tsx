@@ -5,7 +5,7 @@ import PageSpinner from '@/components/page-spinner';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Search } from 'lucide-react';
 import PatientManager from '@/components/therapist/patient-manager';
 
 export default function DashboardPage() {
@@ -18,8 +18,20 @@ export default function DashboardPage() {
   const PatientDashboard = () => (
     <div className="p-4 sm:p-6 lg:p-8">
       <h1 className="text-3xl font-bold tracking-tight mb-2">Welcome, {user?.name}!</h1>
-      <p className="text-muted-foreground mb-6">Here's a quick overview of your progress. You can view your exercises or session history using the sidebar.</p>
-       <div className="grid gap-6 md:grid-cols-2">
+      <p className="text-muted-foreground mb-6">Here's a quick overview of your recovery journey.</p>
+       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <Card>
+            <CardHeader>
+                <CardTitle>Find a Therapist</CardTitle>
+                <CardDescription>Search for a therapist to guide your recovery.</CardDescription>
+            </CardHeader>
+            <CardContent>
+                <p className="text-muted-foreground mb-4">Connect with a professional who fits your needs.</p>
+                <Button asChild>
+                    <Link href="/dashboard/find-therapist">Find a Therapist <Search className="ml-2 h-4 w-4" /></Link>
+                </Button>
+            </CardContent>
+          </Card>
           <Card>
             <CardHeader>
                 <CardTitle>Your Exercises</CardTitle>

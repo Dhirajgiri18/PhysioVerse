@@ -7,7 +7,7 @@ import { SidebarProvider, Sidebar, SidebarHeader, SidebarContent, SidebarMenu, S
 import { Logo } from '@/components/icons';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
-import { LayoutDashboard, LogOut, FileText, Users, BotMessageSquare, Dumbbell, Activity } from 'lucide-react';
+import { LayoutDashboard, LogOut, FileText, Users, BotMessageSquare, Dumbbell, Activity, Search } from 'lucide-react';
 import PageSpinner from '@/components/page-spinner';
 
 export default function DashboardLayout({
@@ -48,6 +48,12 @@ export default function DashboardLayout({
         <SidebarMenuButton href="/dashboard" isActive={pathname === '/dashboard'} tooltip="Dashboard">
           <LayoutDashboard />
           <span>Dashboard</span>
+        </SidebarMenuButton>
+      </SidebarMenuItem>
+      <SidebarMenuItem>
+        <SidebarMenuButton href="/dashboard/find-therapist" isActive={pathname === '/dashboard/find-therapist'} tooltip="Find a Therapist">
+          <Search />
+          <span>Find a Therapist</span>
         </SidebarMenuButton>
       </SidebarMenuItem>
       <SidebarMenuItem>
