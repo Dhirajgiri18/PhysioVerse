@@ -4,7 +4,8 @@
 
 ## 🔗 Live Demo
 
-🌐 [Visit PhysioVerse on Vercel](https://physioverse.vercel.app)
+🌐 [Visit PhysioVerse on Vercel](https://physio-verse.vercel.app/)
+
 
 ## 🚀 Features
 
@@ -29,7 +30,7 @@
 ## 👤 Author
 
 - **Dhiraj Giri** – [@dhirajgiri18](https://github.com/Dhirajgiri18)  
-- Connect on [LinkedIn](https://www.linkedin.com/in/dhiraj-giri18)
+- Connect on [LinkedIn](https://www.linkedin.com/in/dhirajgiri18)
 
 ## 📦 Getting Started
 
