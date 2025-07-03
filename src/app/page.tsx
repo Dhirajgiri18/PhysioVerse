@@ -5,7 +5,7 @@ import { useAuth } from '@/hooks/use-auth';
 import { Button } from '@/components/ui/button';
 import { Logo } from '@/components/icons';
 import { Skeleton } from '@/components/ui/skeleton';
-import { MoveRight, Linkedin, Github, Instagram } from 'lucide-react';
+import { MoveRight, Linkedin, Github, Instagram, Search, CalendarDays, LineChart } from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import {
   Carousel,
@@ -14,6 +14,8 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel"
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+
 
 const testimonials = [
   {
@@ -40,6 +42,24 @@ const testimonials = [
     feedback: 'I never thought physio appointments could be this easy. Highly recommend!',
     image: 'https://placehold.co/40x40?text=RD'
   },
+];
+
+const features = [
+    {
+        icon: <Search className="w-8 h-8 text-primary" />,
+        title: "Find the Right Therapist",
+        description: "Easily search and filter to find the best physiotherapist for your needs in your local area."
+    },
+    {
+        icon: <CalendarDays className="w-8 h-8 text-primary" />,
+        title: "Book with Ease",
+        description: "Our streamlined booking system makes scheduling your appointments quick and hassle-free."
+    },
+    {
+        icon: <LineChart className="w-8 h-8 text-primary" />,
+        title: "Track Your Progress",
+        description: "Monitor your recovery with a personalized dashboard and stay motivated on your healing journey."
+    }
 ];
 
 export default function Home() {
@@ -76,7 +96,8 @@ export default function Home() {
       </header>
 
       <main className="flex-1">
-        <section className="w-full py-20 md:py-32 lg:py-40">
+        <section className="relative w-full py-20 md:py-32 lg:py-40 overflow-hidden">
+          <div className="absolute top-1/2 left-1/2 -z-10 h-96 w-96 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/10 blur-3xl animate-blob" />
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-6 text-center">
               <div className="space-y-4">
@@ -100,7 +121,31 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="w-full py-12 md:py-24 bg-secondary">
+        <section className="w-full py-12 md:py-24 lg:py-32 bg-secondary/50">
+            <div className="container px-4 md:px-6">
+                <div className="mx-auto max-w-4xl text-center mb-12">
+                     <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Everything you need for a smooth recovery</h2>
+                     <p className="mt-4 text-muted-foreground">Our platform is designed to support you every step of the way.</p>
+                </div>
+                 <div className="grid gap-8 md:grid-cols-3">
+                    {features.map((feature, index) => (
+                        <Card key={index} className="text-center hover:shadow-2xl transition-shadow duration-300 border-0 bg-transparent shadow-none hover:bg-card">
+                            <CardHeader className="items-center">
+                                <div className="p-4 bg-primary/10 rounded-full mb-4">
+                                  {feature.icon}
+                                </div>
+                                <CardTitle>{feature.title}</CardTitle>
+                            </CardHeader>
+                            <CardContent>
+                                <p className="text-muted-foreground">{feature.description}</p>
+                            </CardContent>
+                        </Card>
+                    ))}
+                 </div>
+            </div>
+        </section>
+
+        <section className="w-full py-12 md:py-24">
           <div className="container px-4 md:px-6">
             <div className="mx-auto max-w-4xl text-center">
               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-12">What Our Users Say</h2>
