@@ -2,7 +2,6 @@
 
 import type { Exercise } from '@/types';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import Image from 'next/image';
 
 const mockExercises: Exercise[] = [
   {
@@ -39,13 +38,78 @@ const mockExercises: Exercise[] = [
   },
 ];
 
-const getAiHint = (exerciseName: string): string => {
-  const name = exerciseName.toLowerCase();
-  if (name.includes('knee')) return 'knee exercise';
-  if (name.includes('shoulder')) return 'shoulder press';
-  if (name.includes('glute')) return 'glute bridge';
-  if (name.includes('plank')) return 'plank exercise';
-  return 'physiotherapy exercise';
+const KneeExtensionAnimation = () => (
+  <svg viewBox="0 0 100 100" className="w-24 h-24 text-primary">
+    <g transform="translate(10, 10)">
+      {/* Thigh */}
+      <rect x="20" y="45" width="30" height="10" rx="3" fill="currentColor" />
+      {/* Shin */}
+      <g>
+        <rect x="50" y="45" width="30" height="10" rx="3" fill="currentColor">
+           <animateTransform attributeName="transform" type="rotate" from="0 50 50" to="-70 50 50" dur="2s" repeatCount="indefinite" values="0 50 50; -70 50 50; 0 50 50" keyTimes="0; 0.5; 1" />
+        </rect>
+      </g>
+    </g>
+  </svg>
+);
+
+const ShoulderPressAnimation = () => (
+    <svg viewBox="0 0 100 100" className="w-24 h-24 text-primary">
+        {/* Head */}
+        <circle cx="50" cy="30" r="10" fill="currentColor" opacity="0.8" />
+        {/* Barbell */}
+        <rect x="20" y="45" width="60" height="6" rx="2" fill="currentColor">
+            <animate attributeName="y" from="45" to="15" dur="1.5s" repeatCount="indefinite" values="45; 15; 45" keyTimes="0; 0.5; 1" />
+        </rect>
+    </svg>
+);
+
+const GluteBridgeAnimation = () => (
+    <svg viewBox="0 0 100 100" className="w-32 h-32 text-primary">
+        <path d="M 10 70 L 90 70" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
+        <path stroke="currentColor" strokeWidth="4" fill="none" strokeLinecap="round">
+             <animate attributeName="d" dur="2s" repeatCount="indefinite"
+                values="M 20 70 Q 50 70, 80 70; M 20 70 Q 50 40, 80 70; M 20 70 Q 50 70, 80 70"
+                keyTimes="0; 0.5; 1" />
+        </path>
+    </svg>
+);
+
+const PlankAnimation = () => (
+    <svg viewBox="0 0 100 100" className="w-32 h-32 text-primary">
+        <g>
+            <line x1="15" y1="50" x2="85" y2="50" strokeWidth="4" stroke="currentColor" strokeLinecap="round" />
+            <line x1="25" y1="50" x2="20" y2="60" strokeWidth="4" stroke="currentColor" strokeLinecap="round" />
+            <line x1="75" y1="50" x2="80" y2="60" strokeWidth="4" stroke="currentColor" strokeLinecap="round" />
+            <animateTransform attributeName="transform" type="translate" values="0 0; 0 -2; 0 0" keyTimes="0; 0.5; 1" dur="3s" repeatCount="indefinite" />
+        </g>
+    </svg>
+);
+
+
+const ExerciseAnimation = ({ name }: { name: string }) => {
+  const normalizedName = name.toLowerCase();
+  
+  switch (true) {
+    case normalizedName.includes('knee'):
+      return <KneeExtensionAnimation />;
+    case normalizedName.includes('shoulder'):
+      return <ShoulderPressAnimation />;
+    case normalizedName.includes('glute'):
+      return <GluteBridgeAnimation />;
+    case normalizedName.includes('plank'):
+      return <PlankAnimation />;
+    default:
+      // A fallback generic animation for any other exercise
+      return (
+         <svg viewBox="0 0 100 100" className="w-24 h-24 text-primary">
+            <circle cx="50" cy="50" r="15" fill="none" stroke="currentColor" strokeWidth="4">
+                <animate attributeName="r" values="10; 20; 10" dur="2s" repeatCount="indefinite" />
+                <animate attributeName="opacity" values="1; 0.5; 1" dur="2s" repeatCount="indefinite" />
+            </circle>
+        </svg>
+      );
+  }
 };
 
 export default function ExerciseViewer() {
@@ -63,15 +127,10 @@ export default function ExerciseViewer() {
             <CardContent className="flex-grow flex flex-col">
               <p className="text-sm text-muted-foreground mb-4">{exercise.description}</p>
               
-              <div className="aspect-video mt-auto relative overflow-hidden rounded-md border">
-                <Image
-                  src="https://placehold.co/600x400.png"
-                  alt={`Visual for ${exercise.name}`}
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="object-cover transition-transform duration-300 group-hover:scale-105"
-                  data-ai-hint={getAiHint(exercise.name)}
-                />
+              <div className="aspect-video mt-auto relative overflow-hidden rounded-md border flex items-center justify-center bg-muted/20 group-hover:bg-muted/40 transition-colors">
+                <div className="transform transition-transform duration-300 group-hover:scale-110">
+                    <ExerciseAnimation name={exercise.name} />
+                </div>
               </div>
 
             </CardContent>
