@@ -1,4 +1,3 @@
-
 'use client';
 
 import Link from 'next/link';
@@ -100,8 +99,11 @@ export default function Home() {
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-6 text-center">
               <div className="space-y-4">
-                <h1 className="font-headline text-4xl font-extrabold tracking-tight sm:text-5xl xl:text-6xl/none text-foreground">
-                  Healing Made <span className="text-primary">Smarter.</span>
+                <h1 className="font-headline text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl/none text-foreground">
+                  <span className="block">Healing Made</span>
+                  <span className="block bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                    Smarter.
+                  </span>
                 </h1>
                 <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
                   Healero Connect helps patients find the nearest physiotherapist, book appointments, and track their progress with modern tools.
@@ -123,7 +125,7 @@ export default function Home() {
         <section className="w-full py-12 md:py-24 lg:py-32 bg-secondary/40 border-t">
           <div className="container px-4 md:px-6">
             <div className="mx-auto max-w-4xl text-center mb-12">
-              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Everything you need for a smooth recovery</h2>
+              <h2 className="font-headline text-3xl font-bold tracking-tight sm:text-4xl">Everything you need for a smooth recovery</h2>
               <p className="mt-4 text-muted-foreground">Empowered by AI and intuitive UI to support you every step of the way.</p>
             </div>
             <div className="grid gap-8 md:grid-cols-3">
@@ -147,7 +149,7 @@ export default function Home() {
         <section className="w-full py-12 md:py-24">
           <div className="container px-4 md:px-6">
             <div className="mx-auto max-w-4xl text-center">
-              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-12">What Our Users Say</h2>
+              <h2 className="font-headline text-3xl font-bold tracking-tight sm:text-4xl mb-12">What Our Users Say</h2>
               <Carousel opts={{ align: "start", loop: true }} className="w-full max-w-md mx-auto">
                 <CarouselContent>
                   {testimonials.map((t, index) => (
