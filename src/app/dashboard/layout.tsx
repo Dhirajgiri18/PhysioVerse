@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
+import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { useAuth } from '@/hooks/use-auth';
 import { SidebarProvider, Sidebar, SidebarHeader, SidebarContent, SidebarMenu, SidebarMenuItem, SidebarMenuButton, SidebarFooter } from '@/components/ui/sidebar';
@@ -41,33 +42,43 @@ export default function DashboardLayout({
   const patientNav = (
     <SidebarMenu>
       <SidebarMenuItem>
-        <SidebarMenuButton href="/dashboard" isActive={pathname === '/dashboard'} tooltip="Dashboard">
-          <LayoutDashboard />
-          <span>Dashboard</span>
+        <SidebarMenuButton asChild isActive={pathname === '/dashboard'} tooltip="Dashboard">
+          <Link href="/dashboard">
+            <LayoutDashboard />
+            <span>Dashboard</span>
+          </Link>
         </SidebarMenuButton>
       </SidebarMenuItem>
       <SidebarMenuItem>
-        <SidebarMenuButton href="/dashboard/find-therapist" isActive={pathname === '/dashboard/find-therapist'} tooltip="Find a Therapist">
-          <Search />
-          <span>Find a Therapist</span>
+        <SidebarMenuButton asChild isActive={pathname === '/dashboard/find-therapist'} tooltip="Find a Therapist">
+          <Link href="/dashboard/find-therapist">
+            <Search />
+            <span>Find a Therapist</span>
+          </Link>
         </SidebarMenuButton>
       </SidebarMenuItem>
       <SidebarMenuItem>
-        <SidebarMenuButton href="/dashboard/exercises" isActive={pathname === '/dashboard/exercises'} tooltip="Exercises">
-          <Dumbbell />
-          <span>My Exercises</span>
+        <SidebarMenuButton asChild isActive={pathname === '/dashboard/exercises'} tooltip="Exercises">
+          <Link href="/dashboard/exercises">
+            <Dumbbell />
+            <span>My Exercises</span>
+          </Link>
         </SidebarMenuButton>
       </SidebarMenuItem>
       <SidebarMenuItem>
-        <SidebarMenuButton href="/dashboard/history" isActive={pathname === '/dashboard/history'} tooltip="History">
-          <Activity />
-          <span>Session History</span>
+        <SidebarMenuButton asChild isActive={pathname === '/dashboard/history'} tooltip="History">
+          <Link href="/dashboard/history">
+            <Activity />
+            <span>Session History</span>
+          </Link>
         </SidebarMenuButton>
       </SidebarMenuItem>
        <SidebarMenuItem>
-        <SidebarMenuButton href="/dashboard/profile" isActive={pathname === '/dashboard/profile'} tooltip="Profile">
-          <User />
-          <span>Profile</span>
+        <SidebarMenuButton asChild isActive={pathname === '/dashboard/profile'} tooltip="Profile">
+          <Link href="/dashboard/profile">
+            <User />
+            <span>Profile</span>
+          </Link>
         </SidebarMenuButton>
       </SidebarMenuItem>
     </SidebarMenu>
@@ -76,33 +87,43 @@ export default function DashboardLayout({
   const therapistNav = (
     <SidebarMenu>
       <SidebarMenuItem>
-        <SidebarMenuButton href="/dashboard" isActive={pathname === '/dashboard'} tooltip="Dashboard">
-          <LayoutDashboard />
-          <span>Dashboard</span>
+        <SidebarMenuButton asChild isActive={pathname === '/dashboard'} tooltip="Dashboard">
+          <Link href="/dashboard">
+            <LayoutDashboard />
+            <span>Dashboard</span>
+          </Link>
         </SidebarMenuButton>
       </SidebarMenuItem>
       <SidebarMenuItem>
-        <SidebarMenuButton href="/dashboard/patients" isActive={pathname === '/dashboard/patients'} tooltip="Patients">
-          <Users />
-          <span>Patients</span>
+        <SidebarMenuButton asChild isActive={pathname === '/dashboard/patients'} tooltip="Patients">
+          <Link href="/dashboard/patients">
+            <Users />
+            <span>Patients</span>
+          </Link>
         </SidebarMenuButton>
       </SidebarMenuItem>
       <SidebarMenuItem>
-        <SidebarMenuButton href="/dashboard/ai-tool" isActive={pathname === '/dashboard/ai-tool'} tooltip="AI Tool">
-          <BotMessageSquare />
-          <span>AI Treatment Tool</span>
+        <SidebarMenuButton asChild isActive={pathname === '/dashboard/ai-tool'} tooltip="AI Tool">
+          <Link href="/dashboard/ai-tool">
+            <BotMessageSquare />
+            <span>AI Treatment Tool</span>
+          </Link>
         </SidebarMenuButton>
       </SidebarMenuItem>
       <SidebarMenuItem>
-        <SidebarMenuButton href="/dashboard/notes" isActive={pathname === '/dashboard/notes'} tooltip="Notes">
-          <FileText />
-          <span>Session Notes</span>
+        <SidebarMenuButton asChild isActive={pathname === '/dashboard/notes'} tooltip="Notes">
+          <Link href="/dashboard/notes">
+            <FileText />
+            <span>Session Notes</span>
+          </Link>
         </SidebarMenuButton>
       </SidebarMenuItem>
        <SidebarMenuItem>
-        <SidebarMenuButton href="/dashboard/profile" isActive={pathname === '/dashboard/profile'} tooltip="Profile">
-          <User />
-          <span>Profile</span>
+        <SidebarMenuButton asChild isActive={pathname === '/dashboard/profile'} tooltip="Profile">
+          <Link href="/dashboard/profile">
+            <User />
+            <span>Profile</span>
+          </Link>
         </SidebarMenuButton>
       </SidebarMenuItem>
     </SidebarMenu>
