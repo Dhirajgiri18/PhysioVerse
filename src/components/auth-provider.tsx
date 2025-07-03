@@ -15,14 +15,20 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (fbUser) => {
-      setFirebaseUser(fbUser);
-      if (fbUser) {
-        const appUser = await getUserProfile(fbUser.uid);
-        setUser(appUser);
-      } else {
+      try {
+        setFirebaseUser(fbUser);
+        if (fbUser) {
+          const appUser = await getUserProfile(fbUser.uid);
+          setUser(appUser);
+        } else {
+          setUser(null);
+        }
+      } catch (error) {
+        console.error("Failed to get user profile:", error);
         setUser(null);
+      } finally {
+        setLoading(false);
       }
-      setLoading(false);
     });
 
     return () => unsubscribe();
