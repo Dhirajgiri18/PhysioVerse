@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { useAuth } from '@/hooks/use-auth';
 import { SidebarProvider, Sidebar, SidebarHeader, SidebarContent, SidebarMenu, SidebarMenuItem, SidebarMenuButton, SidebarFooter } from '@/components/ui/sidebar';
 import { Logo } from '@/components/icons';
@@ -17,6 +17,7 @@ export default function DashboardLayout({
 }) {
   const { user, loading, logout } = useAuth();
   const router = useRouter();
+  const pathname = usePathname();
 
   useEffect(() => {
     if (!loading && !user) {
@@ -40,19 +41,19 @@ export default function DashboardLayout({
   const patientNav = (
     <SidebarMenu>
       <SidebarMenuItem>
-        <SidebarMenuButton href="/dashboard" isActive={true} tooltip="Dashboard">
+        <SidebarMenuButton href="/dashboard" isActive={pathname === '/dashboard'} tooltip="Dashboard">
           <LayoutDashboard />
           <span>Dashboard</span>
         </SidebarMenuButton>
       </SidebarMenuItem>
       <SidebarMenuItem>
-        <SidebarMenuButton href="#" tooltip="Exercises">
+        <SidebarMenuButton href="/dashboard/exercises" isActive={pathname === '/dashboard/exercises'} tooltip="Exercises">
           <Dumbbell />
           <span>My Exercises</span>
         </SidebarMenuButton>
       </SidebarMenuItem>
       <SidebarMenuItem>
-        <SidebarMenuButton href="#" tooltip="History">
+        <SidebarMenuButton href="/dashboard/history" isActive={pathname === '/dashboard/history'} tooltip="History">
           <Activity />
           <span>Session History</span>
         </SidebarMenuButton>
@@ -63,25 +64,25 @@ export default function DashboardLayout({
   const therapistNav = (
     <SidebarMenu>
       <SidebarMenuItem>
-        <SidebarMenuButton href="/dashboard" isActive={true} tooltip="Dashboard">
+        <SidebarMenuButton href="/dashboard" isActive={pathname === '/dashboard'} tooltip="Dashboard">
           <LayoutDashboard />
           <span>Dashboard</span>
         </SidebarMenuButton>
       </SidebarMenuItem>
       <SidebarMenuItem>
-        <SidebarMenuButton href="#" tooltip="Patients">
+        <SidebarMenuButton href="/dashboard/patients" isActive={pathname === '/dashboard/patients'} tooltip="Patients">
           <Users />
           <span>Patients</span>
         </SidebarMenuButton>
       </SidebarMenuItem>
       <SidebarMenuItem>
-        <SidebarMenuButton href="#" tooltip="AI Tool">
+        <SidebarMenuButton href="/dashboard/ai-tool" isActive={pathname === '/dashboard/ai-tool'} tooltip="AI Tool">
           <BotMessageSquare />
           <span>AI Treatment Tool</span>
         </SidebarMenuButton>
       </SidebarMenuItem>
       <SidebarMenuItem>
-        <SidebarMenuButton href="#" tooltip="Notes">
+        <SidebarMenuButton href="/dashboard/notes" isActive={pathname === '/dashboard/notes'} tooltip="Notes">
           <FileText />
           <span>Session Notes</span>
         </SidebarMenuButton>

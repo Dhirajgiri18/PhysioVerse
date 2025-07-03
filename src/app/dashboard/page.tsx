@@ -1,11 +1,12 @@
 'use client';
 
 import { useAuth } from '@/hooks/use-auth';
-import AiTreatmentTool from '@/components/therapist/ai-treatment-tool';
-import PatientManager from '@/components/therapist/patient-manager';
-import ExerciseViewer from '@/components/patient/exercise-viewer';
 import PageSpinner from '@/components/page-spinner';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
+import PatientManager from '@/components/therapist/patient-manager';
 
 export default function DashboardPage() {
   const { user, loading } = useAuth();
@@ -17,29 +18,43 @@ export default function DashboardPage() {
   const PatientDashboard = () => (
     <div className="p-4 sm:p-6 lg:p-8">
       <h1 className="text-3xl font-bold tracking-tight mb-2">Welcome, {user?.name}!</h1>
-      <p className="text-muted-foreground mb-6">Here is your personalized treatment plan.</p>
-      <ExerciseViewer />
+      <p className="text-muted-foreground mb-6">Here's a quick overview of your progress. You can view your exercises or session history using the sidebar.</p>
+       <div className="grid gap-6 md:grid-cols-2">
+          <Card>
+            <CardHeader>
+                <CardTitle>Your Exercises</CardTitle>
+                <CardDescription>View your assigned physiotherapy exercises.</CardDescription>
+            </CardHeader>
+            <CardContent>
+                <p className="text-muted-foreground mb-4">Stay on track with your personalized exercise plan.</p>
+                <Button asChild>
+                    <Link href="/dashboard/exercises">View Exercises <ArrowRight className="ml-2 h-4 w-4" /></Link>
+                </Button>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardHeader>
+                <CardTitle>Session History</CardTitle>
+                <CardDescription>Review notes from your past sessions.</CardDescription>
+            </CardHeader>
+            <CardContent>
+                <p className="text-muted-foreground mb-4">Look back at your journey and progress over time.</p>
+                <Button asChild>
+                    <Link href="/dashboard/history">View History <ArrowRight className="ml-2 h-4 w-4" /></Link>
+                </Button>
+            </CardContent>
+          </Card>
+       </div>
     </div>
   );
 
   const TherapistDashboard = () => (
-    <div className="p-4 sm:p-6 lg:p-8 h-full flex flex-col">
+    <div className="p-4 sm:p-6 lg:p-8">
        <div className="mb-6">
         <h1 className="text-3xl font-bold tracking-tight">Therapist Dashboard</h1>
-        <p className="text-muted-foreground">Manage your patients and their treatment plans.</p>
+        <p className="text-muted-foreground">Here's an overview of your patients. Use the sidebar to access other tools.</p>
       </div>
-      <Tabs defaultValue="patients" className="flex-grow flex flex-col">
-        <TabsList className="grid w-full grid-cols-2 max-w-md">
-          <TabsTrigger value="patients">Patients</TabsTrigger>
-          <TabsTrigger value="ai-tool">AI Treatment Tool</TabsTrigger>
-        </TabsList>
-        <TabsContent value="patients" className="flex-grow mt-6">
-          <PatientManager />
-        </TabsContent>
-        <TabsContent value="ai-tool" className="flex-grow mt-6">
-          <AiTreatmentTool />
-        </TabsContent>
-      </Tabs>
+      <PatientManager />
     </div>
   );
 
