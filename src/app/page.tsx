@@ -1,34 +1,18 @@
 'use client';
 
-import { useEffect } from 'react';
-import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useAuth } from '@/hooks/use-auth';
-import PageSpinner from '@/components/page-spinner';
 import { Button } from '@/components/ui/button';
 import { Logo } from '@/components/icons';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { MoveRight, Users, ClipboardCheck, TrendingUp, BotMessageSquare, Dumbbell, Activity } from 'lucide-react';
+import { Skeleton } from '@/components/ui/skeleton';
 
 export default function Home() {
   const { user, loading } = useAuth();
-  const router = useRouter();
 
-  useEffect(() => {
-    // Redirect to dashboard if user is logged in
-    if (!loading && user) {
-      router.push('/dashboard');
-    }
-  }, [user, loading, router]);
-
-  // Show a spinner while auth state is loading or if user is being redirected
-  if (loading || user) {
-    return <PageSpinner />;
-  }
-
-  // If not loading and no user, show the landing page
   return (
     <div className="flex flex-col min-h-dvh bg-background">
       <header className="px-4 lg:px-6 h-16 flex items-center shadow-sm backdrop-blur-sm bg-background/80 sticky top-0 z-50">
@@ -37,12 +21,25 @@ export default function Home() {
           <span className="ml-3 text-2xl font-bold tracking-tight text-foreground">Healero</span>
         </Link>
         <nav className="ml-auto flex gap-2 sm:gap-4">
-          <Button asChild variant="ghost">
-            <Link href="/login">Login</Link>
-          </Button>
-          <Button asChild>
-            <Link href="/signup">Sign Up</Link>
-          </Button>
+          {loading ? (
+            <div className="flex items-center gap-2">
+              <Skeleton className="h-10 w-24" />
+              <Skeleton className="h-10 w-24" />
+            </div>
+          ) : user ? (
+            <Button asChild>
+              <Link href="/dashboard">Go to Dashboard</Link>
+            </Button>
+          ) : (
+            <>
+              <Button asChild variant="ghost">
+                <Link href="/login">Login</Link>
+              </Button>
+              <Button asChild>
+                <Link href="/signup">Sign Up</Link>
+              </Button>
+            </>
+          )}
         </nav>
       </header>
       <main className="flex-1">
