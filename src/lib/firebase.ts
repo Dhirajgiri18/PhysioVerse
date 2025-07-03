@@ -1,8 +1,7 @@
 import { initializeApp, getApps, getApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
-import { getFirestore } from 'firebase/firestore';
+import { getFirestore, doc, setDoc, getDoc, updateDoc } from 'firebase/firestore';
 import type { AppUser } from '@/types';
-import { doc, setDoc, getDoc } from 'firebase/firestore';
 
 const firebaseConfig = {
   apiKey: "AIzaSyCD2kp1X-a79oESU31F-3NjSsx0EZ6Xjeg",
@@ -13,21 +12,30 @@ const firebaseConfig = {
   appId: "1:184817731214:web:0b9e1d7c24d42db090ebdf"
 };
 
-
-// Initialize Firebase
 const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-// Firestore helper functions
 const createUserProfile = async (
   uid: string,
-  data: Omit<AppUser, 'uid'>
+  data: Omit<AppUser, 'uid' | 'specialty' | 'location' | 'bio' >
 ) => {
-  return setDoc(doc(db, 'users', uid), {
+  const userDocRef = doc(db, 'users', uid);
+  const userData = {
     uid,
     ...data,
-  });
+  };
+
+  if (data.role === 'therapist') {
+    return setDoc(userDocRef, {
+      ...userData,
+      specialty: 'Not specified',
+      location: 'Not specified',
+      bio: '',
+    });
+  }
+
+  return setDoc(userDocRef, userData);
 };
 
 const getUserProfile = async (uid:string): Promise<AppUser | null> => {
@@ -41,4 +49,12 @@ const getUserProfile = async (uid:string): Promise<AppUser | null> => {
   }
 };
 
-export { app, auth, db, createUserProfile, getUserProfile };
+const updateUserProfile = async (
+  uid: string,
+  data: Partial<AppUser>
+) => {
+  const userDocRef = doc(db, 'users', uid);
+  return updateDoc(userDocRef, data);
+};
+
+export { app, auth, db, createUserProfile, getUserProfile, updateUserProfile };

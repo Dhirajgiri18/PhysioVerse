@@ -9,6 +9,11 @@ export interface AppUser {
   role: UserRole;
   assignedPatientIds?: string[];
   assignedTherapistId?: string;
+  // Therapist-specific fields
+  specialty?: string;
+  location?: string;
+  bio?: string;
+  avatarUrl?: string;
 }
 
 export interface AuthContextType {

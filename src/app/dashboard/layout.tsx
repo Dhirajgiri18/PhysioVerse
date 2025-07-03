@@ -7,7 +7,7 @@ import { SidebarProvider, Sidebar, SidebarHeader, SidebarContent, SidebarMenu, S
 import { Logo } from '@/components/icons';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
-import { LayoutDashboard, LogOut, FileText, Users, BotMessageSquare, Dumbbell, Activity, Search } from 'lucide-react';
+import { LayoutDashboard, LogOut, FileText, Users, BotMessageSquare, Dumbbell, Activity, Search, User } from 'lucide-react';
 import PageSpinner from '@/components/page-spinner';
 
 export default function DashboardLayout({
@@ -15,21 +15,17 @@ export default function DashboardLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const { user, loading, logout } = useAuth();
+  const { user, loading, logout, firebaseUser } = useAuth();
   const router = useRouter();
   const pathname = usePathname();
 
   useEffect(() => {
-    if (!loading && !user) {
+    if (!loading && !firebaseUser) {
       router.push('/login');
     }
-  }, [loading, user, router]);
+  }, [loading, firebaseUser, router]);
 
-  if (loading) {
-    return <PageSpinner />;
-  }
-
-  if (!user) {
+  if (loading || !user) {
     return <PageSpinner />;
   }
 
@@ -68,6 +64,12 @@ export default function DashboardLayout({
           <span>Session History</span>
         </SidebarMenuButton>
       </SidebarMenuItem>
+       <SidebarMenuItem>
+        <SidebarMenuButton href="/dashboard/profile" isActive={pathname === '/dashboard/profile'} tooltip="Profile">
+          <User />
+          <span>Profile</span>
+        </SidebarMenuButton>
+      </SidebarMenuItem>
     </SidebarMenu>
   );
 
@@ -95,6 +97,12 @@ export default function DashboardLayout({
         <SidebarMenuButton href="/dashboard/notes" isActive={pathname === '/dashboard/notes'} tooltip="Notes">
           <FileText />
           <span>Session Notes</span>
+        </SidebarMenuButton>
+      </SidebarMenuItem>
+       <SidebarMenuItem>
+        <SidebarMenuButton href="/dashboard/profile" isActive={pathname === '/dashboard/profile'} tooltip="Profile">
+          <User />
+          <span>Profile</span>
         </SidebarMenuButton>
       </SidebarMenuItem>
     </SidebarMenu>
