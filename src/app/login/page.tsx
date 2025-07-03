@@ -56,7 +56,7 @@ export default function LoginPage() {
           <div className="mb-4 flex justify-center">
             <Logo className="h-10 w-10" />
           </div>
-          <CardTitle className="text-2xl font-bold">Welcome back to Healero Connect</CardTitle>
+          <CardTitle className="text-2xl font-bold">Welcome back to PhysioVerse</CardTitle>
           <CardDescription>Enter your email below to login to your account</CardDescription>
         </CardHeader>
         <CardContent>

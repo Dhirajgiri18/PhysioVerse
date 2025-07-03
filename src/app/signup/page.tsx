@@ -72,7 +72,7 @@ export default function SignupPage() {
             <Logo className="h-10 w-10" />
           </div>
           <CardTitle className="text-2xl font-bold">Create an account</CardTitle>
-          <CardDescription>Enter your information to get started with Healero Connect</CardDescription>
+          <CardDescription>Enter your information to get started with PhysioVerse</CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSignup}>

@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useAuth } from '@/hooks/use-auth';
 import { Button } from '@/components/ui/button';
 import { Skeleton } from '@/components/ui/skeleton';
-import { MoveRight, Linkedin, Github, Instagram, Search, CalendarDays, LineChart, HeartPulse } from 'lucide-react';
+import { MoveRight, Linkedin, Github, Instagram, Search, CalendarDays, LineChart } from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import {
   Carousel,
@@ -14,12 +14,13 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Logo } from '@/components/icons';
 
 const testimonials = [
   {
     name: 'Riya Sharma',
     location: 'Pune',
-    feedback: 'Healero Connect helped me find the best physiotherapist near me. I’m recovering better than ever.',
+    feedback: 'PhysioVerse helped me find the best physiotherapist near me. I’m recovering better than ever.',
     image: 'https://placehold.co/40x40?text=RS'
   },
   {
@@ -67,8 +68,8 @@ export default function Home() {
     <div className="flex flex-col min-h-dvh bg-gradient-to-br from-background to-muted/40">
       <header className="px-4 lg:px-6 h-16 flex items-center shadow-md backdrop-blur-sm bg-background/70 sticky top-0 z-50">
         <Link href="#" className="flex items-center justify-center" prefetch={false}>
-          <HeartPulse className="h-8 w-8 text-primary animate-pulse" />
-          <span className="ml-3 text-2xl font-extrabold tracking-tight text-foreground">Healero Connect</span>
+          <Logo className="h-8 w-8" />
+          <span className="ml-3 text-2xl font-extrabold tracking-tight text-foreground">PhysioVerse</span>
         </Link>
         <nav className="ml-auto flex gap-2 sm:gap-4">
           {loading ? (
@@ -106,7 +107,7 @@ export default function Home() {
                   </span>
                 </h1>
                 <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
-                  Healero Connect helps patients find the nearest physiotherapist, book appointments, and track their progress with modern tools.
+                  PhysioVerse helps patients find the nearest physiotherapist, book appointments, and track their progress with modern tools.
                 </p>
               </div>
               <div className="flex flex-col gap-2 min-[400px]:flex-row">
@@ -185,8 +186,8 @@ export default function Home() {
           <div className="grid gap-8 md:grid-cols-4">
             <div className="flex flex-col gap-2">
               <Link href="#" className="flex items-center" prefetch={false}>
-                <HeartPulse className="h-8 w-8 text-primary animate-pulse" />
-                <span className="ml-2 text-xl font-bold">Healero Connect</span>
+                <Logo className="h-8 w-8" />
+                <span className="ml-2 text-xl font-bold">PhysioVerse</span>
               </Link>
               <p className="text-muted-foreground text-sm">Healing Made Smarter.</p>
             </div>
@@ -222,7 +223,7 @@ export default function Home() {
             </div>
           </div>
           <div className="mt-8 border-t pt-6 text-center text-sm text-muted-foreground">
-            <p>&copy; {new Date().getFullYear()} Healero Connect. All rights reserved.</p>
+            <p>&copy; {new Date().getFullYear()} PhysioVerse. All rights reserved.</p>
           </div>
         </div>
       </footer>

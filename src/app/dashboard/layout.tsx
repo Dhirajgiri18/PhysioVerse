@@ -135,8 +135,8 @@ export default function DashboardLayout({
         <Sidebar>
           <SidebarHeader>
             <div className="flex items-center gap-2">
-              <Logo className="h-8 w-8 text-primary" />
-              <span className="text-xl font-bold tracking-tight">Healero Connect</span>
+              <Logo className="h-8 w-8" />
+              <span className="text-xl font-bold tracking-tight">PhysioVerse</span>
             </div>
           </SidebarHeader>
           <SidebarContent>
