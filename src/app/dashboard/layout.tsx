@@ -101,7 +101,7 @@ export default function DashboardLayout({
           <SidebarHeader>
             <div className="flex items-center gap-2">
               <Logo className="h-8 w-8 text-primary" />
-              <span className="text-xl font-bold tracking-tight">Healero</span>
+              <span className="text-xl font-bold tracking-tight">Healero Connect</span>
             </div>
           </SidebarHeader>
           <SidebarContent>

@@ -4,7 +4,7 @@ import { AuthProvider } from '@/components/auth-provider';
 import { Toaster } from '@/components/ui/toaster';
 
 export const metadata: Metadata = {
-  title: 'Healero',
+  title: 'Healero Connect',
   description: 'A Physiotherapy Web App',
 };
 

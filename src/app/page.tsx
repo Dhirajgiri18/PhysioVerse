@@ -21,7 +21,7 @@ const testimonials = [
   {
     name: 'Riya Sharma',
     location: 'Pune',
-    feedback: 'Healero helped me find the best physiotherapist near me. I’m recovering better than ever.',
+    feedback: 'Healero Connect helped me find the best physiotherapist near me. I’m recovering better than ever.',
     image: 'https://placehold.co/40x40?text=RS'
   },
   {
@@ -70,7 +70,7 @@ export default function Home() {
       <header className="px-4 lg:px-6 h-16 flex items-center shadow-sm backdrop-blur-sm bg-background/80 sticky top-0 z-50">
         <Link href="#" className="flex items-center justify-center" prefetch={false}>
           <Logo className="h-8 w-8 text-primary" />
-          <span className="ml-3 text-2xl font-bold tracking-tight text-foreground">Healero</span>
+          <span className="ml-3 text-2xl font-bold tracking-tight text-foreground">Healero Connect</span>
         </Link>
         <nav className="ml-auto flex gap-2 sm:gap-4">
           {loading ? (
@@ -105,7 +105,7 @@ export default function Home() {
                   Healing Made Smarter.
                 </h1>
                 <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
-                  Healero helps patients find the nearest physiotherapist, book appointments, and track their progress.
+                  Healero Connect helps patients find the nearest physiotherapist, book appointments, and track their progress.
                 </p>
               </div>
               <div className="flex flex-col gap-2 min-[400px]:flex-row">
@@ -192,7 +192,7 @@ export default function Home() {
             <div className="flex flex-col gap-2">
               <Link href="#" className="flex items-center" prefetch={false}>
                 <Logo className="h-8 w-8 text-primary" />
-                <span className="ml-2 text-xl font-bold">Healero</span>
+                <span className="ml-2 text-xl font-bold">Healero Connect</span>
               </Link>
               <p className="text-muted-foreground text-sm">Healing Made Smarter.</p>
             </div>
@@ -228,7 +228,7 @@ export default function Home() {
             </div>
           </div>
           <div className="mt-8 border-t pt-6 text-center text-sm text-muted-foreground">
-            <p>&copy; {new Date().getFullYear()} Healero. All rights reserved.</p>
+            <p>&copy; {new Date().getFullYear()} Healero Connect. All rights reserved.</p>
           </div>
         </div>
       </footer>
