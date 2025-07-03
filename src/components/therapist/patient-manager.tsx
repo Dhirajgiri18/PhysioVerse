@@ -4,7 +4,7 @@ import type { Patient } from '@/types';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Progress } from '@/components/ui/progress';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 
 const mockPatients: Patient[] = [
   { id: '1', name: 'Arjun Kumar', email: 'arjun.k@example.com', lastActivity: '2 days ago', progress: 75 },
@@ -37,7 +37,6 @@ export default function PatientManager() {
                 <TableCell>
                   <div className="flex items-center gap-3">
                     <Avatar className="h-9 w-9">
-                      <AvatarImage src={`https://placehold.co/40x40.png`} alt={patient.name} data-ai-hint="person avatar" />
                       <AvatarFallback>{getInitials(patient.name)}</AvatarFallback>
                     </Avatar>
                     <div>
