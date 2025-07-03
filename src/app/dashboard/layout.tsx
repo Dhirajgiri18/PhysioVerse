@@ -136,7 +136,7 @@ export default function DashboardLayout({
           <SidebarHeader>
             <div className="flex items-center gap-2">
               <Logo className="h-8 w-8" />
-              <span className="text-xl font-bold tracking-tight">PhysioVerse</span>
+              <span className="text-xl font-bold font-headline">PhysioVerse</span>
             </div>
           </SidebarHeader>
           <SidebarContent>

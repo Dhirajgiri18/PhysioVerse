@@ -71,7 +71,7 @@ export default function SignupPage() {
           <div className="mb-4 flex justify-center">
             <Logo className="h-10 w-10" />
           </div>
-          <CardTitle className="text-2xl font-bold">Create an account</CardTitle>
+          <CardTitle className="text-2xl font-bold font-headline">Create an account</CardTitle>
           <CardDescription>Enter your information to get started with PhysioVerse</CardDescription>
         </CardHeader>
         <CardContent>

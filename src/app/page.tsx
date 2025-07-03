@@ -69,7 +69,7 @@ export default function Home() {
       <header className="px-4 lg:px-6 h-16 flex items-center shadow-md backdrop-blur-sm bg-background/70 sticky top-0 z-50">
         <Link href="#" className="flex items-center justify-center" prefetch={false}>
           <Logo className="h-8 w-8" />
-          <span className="ml-3 text-2xl font-extrabold tracking-tight text-foreground">PhysioVerse</span>
+          <span className="ml-2 text-2xl font-bold font-headline text-foreground">PhysioVerse</span>
         </Link>
         <nav className="ml-auto flex gap-2 sm:gap-4">
           {loading ? (
@@ -100,14 +100,11 @@ export default function Home() {
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-6 text-center">
               <div className="space-y-4">
-                <h1 className="font-headline text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl/none text-foreground">
-                  <span className="block">Healing Made</span>
-                  <span className="block bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                    Smarter.
-                  </span>
+                <h1 className="font-headline text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl/none bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                  Healing Made Smarter.
                 </h1>
                 <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
-                  PhysioVerse helps patients find the nearest physiotherapist, book appointments, and track their progress with modern tools.
+                  Your personalized journey to recovery. Find top therapists, book appointments with ease, and track your progress with our modern toolkit.
                 </p>
               </div>
               <div className="flex flex-col gap-2 min-[400px]:flex-row">
