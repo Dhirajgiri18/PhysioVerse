@@ -6,7 +6,7 @@ import { useAuth } from '@/hooks/use-auth';
 import { Button } from '@/components/ui/button';
 import { Logo } from '@/components/icons';
 import { Skeleton } from '@/components/ui/skeleton';
-import { MoveRight, CalendarDays, MapPin, LayoutDashboard, Facebook, Twitter, Instagram } from 'lucide-react';
+import { MoveRight, CalendarDays, MapPin, LayoutDashboard, Linkedin, Github, Instagram } from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
 
@@ -182,21 +182,21 @@ export default function Home() {
             <div>
               <h4 className="font-semibold mb-2">Contact</h4>
               <div className="text-sm text-muted-foreground">
-                <p>123 Wellness St.</p>
-                <p>Healtown, MD 12345</p>
-                <p className="mt-2">Email: <a href="mailto:contact@healero.com" className="hover:text-primary">contact@healero.com</a></p>
+                <p>Spyder World</p>
+                <p>Pune, Maharashtra</p>
+                <p className="mt-2">Email: <a href="mailto:dhirajgiri91124@gmail.com" className="hover:text-primary">dhirajgiri91124@gmail.com</a></p>
               </div>
             </div>
             <div>
               <h4 className="font-semibold mb-2">Follow Us</h4>
               <div className="flex gap-4">
-                <Link href="#" className="text-muted-foreground hover:text-primary" aria-label="Facebook">
-                  <Facebook className="h-6 w-6" />
+                <Link href="https://www.linkedin.com/in/dhiraj-giri18/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary" aria-label="LinkedIn">
+                  <Linkedin className="h-6 w-6" />
                 </Link>
-                <Link href="#" className="text-muted-foreground hover:text-primary" aria-label="Twitter">
-                  <Twitter className="h-6 w-6" />
+                <Link href="https://github.com/Dhirajgiri18" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary" aria-label="GitHub">
+                  <Github className="h-6 w-6" />
                 </Link>
-                <Link href="#" className="text-muted-foreground hover:text-primary" aria-label="Instagram">
+                <Link href="https://www.instagram.com/dhiraj__giri/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary" aria-label="Instagram">
                   <Instagram className="h-6 w-6" />
                 </Link>
               </div>
