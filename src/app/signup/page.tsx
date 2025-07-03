@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
@@ -14,6 +14,8 @@ import { useToast } from '@/hooks/use-toast';
 import type { UserRole } from '@/types';
 import { Logo } from '@/components/icons';
 import { Loader2 } from 'lucide-react';
+import { useAuth } from '@/hooks/use-auth';
+import PageSpinner from '@/components/page-spinner';
 
 export default function SignupPage() {
   const router = useRouter();
@@ -23,6 +25,13 @@ export default function SignupPage() {
   const [password, setPassword] = useState('');
   const [role, setRole] = useState<UserRole>('patient');
   const [loading, setLoading] = useState(false);
+  const { user, loading: authLoading } = useAuth();
+
+  useEffect(() => {
+    if (!authLoading && user) {
+      router.push('/dashboard');
+    }
+  }, [user, authLoading, router]);
 
   const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -50,6 +59,10 @@ export default function SignupPage() {
       setLoading(false);
     }
   };
+
+  if (authLoading || user) {
+    return <PageSpinner />;
+  }
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-background to-secondary p-4">
